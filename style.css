@@ -1,0 +1,70 @@
+#yt-floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: #b20423;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 999999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+#yt-floating-frame {
+  position: fixed;
+  width: 300px;
+  height: 400px;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 999998;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  display: none;
+  flex-direction: column;
+}
+
+#yt-frame-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+#yt-close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.yt-sub-frame {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+  overflow: auto;
+}
+
+.yt-sub-frame h4 {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+}
+
+#yt-input-box {
+  width: 90%;
+  margin: 4px auto 0 auto;
+  padding: 6px;
+  border-radius: 5px;
+  border: none;
+  align-self: center;
+}
