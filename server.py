@@ -1,0 +1,58 @@
+def get_transcript(url):
+    print(url+url) 
+    if len(url) < 2: 
+        print("ERROR: No URL provided") 
+        sys.exit(1) 
+    video_url = url 
+    output_file = "output.mp3" 
+    ydl_opts = { "format": "bestaudio/best", 
+                "outtmpl": "output.%(ext)s", 
+                "quiet": True, 
+                "postprocessors": [ { "key": "FFmpegExtractAudio",
+                                      "preferredcodec": "mp3",
+                                    "preferredquality": "192", 
+                                    } ], 
+                }
+    
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl: 
+        ydl.download([video_url])
+    
+    model = WhisperModel("small", device="cpu", compute_type="int8") 
+    segments, info = model.transcribe(output_file, beam_size=5) 
+    transcription = [] 
+    for segment in segments: 
+        transcription.append(segment.text)
+    tts = " ".join(transcription) 
+
+    os.remove(output_file) 
+    tt = tts.split("B/s") 
+
+    
+    genai.configure(api_key="AIzaSyDY82-5HEFDBdY3P8xXLs72-7VSD6Rp-hM")
+    generation_config = {
+    "temperature": 1,
+    "top_p": 0.95,
+    "top_k": 40,
+    "max_output_tokens": 2000,
+    "response_mime_type": "text/plain",
+}
+    model = genai.GenerativeModel(
+    model_name="gemini-1.5-flash",
+    generation_config=generation_config,
+)
+    
+    chat_session = model.start_chat(
+    history=[]
+)
+    
+    response = chat_session.send_message(f"{tt[-1]}. if this is an argumentative text, fact check and show both sides of argument to remove bias. if this is an informative text, fact check this. if this isn't either, provide further informaton to aid the viewer. use the labels ##FACT CHECK## if it is fact check. use the label ##NO BIAS## if it shows both sides of an argument without bias. use the label ##MORE INFO## if it shows more information on the topic. keep all sentences to 150 words MAX. every time a paragraph ends, end the paragrph with the label ##END HERE##")
+
+    return response.text
+    
+if __name__ == "__main__":
+    import sys, yt_dlp, os
+    import google.generativeai as genai
+    from faster_whisper import WhisperModel 
+    a = str(sys.argv[1]) 
+    tts = get_transcript(a) 
+    print(tts, flush=True)
