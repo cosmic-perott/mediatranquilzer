@@ -28,7 +28,7 @@ def get_transcript(url):
     tt = tts.split("B/s") 
 
     
-    genai.configure(api_key="AIzaSyDY82-5HEFDBdY3P8xXLs72-7VSD6Rp-hM")
+    genai.configure(api_key="AIzaSyDMHYkly-Ms5lTQ0bZRADM1Um_J9I53o1I")
     generation_config = {
     "temperature": 1,
     "top_p": 0.95,
@@ -45,7 +45,7 @@ def get_transcript(url):
     history=[]
 )
     
-    response = chat_session.send_message(f"{tt[-1]}. if this is an argumentative text, fact check and show both sides of argument to remove bias. if this is an informative text, fact check this. if this isn't either, provide further informaton to aid the viewer. use the labels ##FACT CHECK## if it is fact check. use the label ##NO BIAS## if it shows both sides of an argument without bias. use the label ##MORE INFO## if it shows more information on the topic. keep all sentences to 150 words MAX. every time a paragraph ends, end the paragrph with the label ##END HERE##")
+    response = chat_session.send_message(f"{tt[-1]}. if this is an argumentative text, fact check and show both sides of argument to remove bias. if this is an informative text, fact check this. if this isn't either, provide further informaton to aid the viewer. use the labels ##FACT CHECK## if it is fact check. use the label ##NO BIAS## if it shows both sides of an argument without bias. use the label ##MORE INFO## if it shows more information on the topic. keep all sentences to 150 words MAX. every time a paragraph ends, end the paragrph with the label ##END HERE## any response you give must be put under one of the three labels. if you have a summary of the video, put it under fact check")
 
     return response.text
     
