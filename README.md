@@ -43,4 +43,4 @@ this will direct you to a website made with streamlit where you can have a 1 to 
 
 
 
-**All code, content, writings, images created by cosmic-perott for PennApps XXVI**
+***All code, content, writings, images created by cosmic-perott for PennApps XXVI***
