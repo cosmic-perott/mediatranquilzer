@@ -80,7 +80,7 @@ if (!document.getElementById("yt-floating-btn")) {
         .then(output => {
           // parse content
           const factMatch = output.match(/##FACT CHECK##([\s\S]*?)##END HERE##/);
-          const neutralMatch = output.match(/##NEUTRAL OVERVIEW##([\s\S]*?)##END HERE##/);
+          const neutralMatch = output.match(/##NO BIAS##([\s\S]*?)##END HERE##/);
           const moreMatch = output.match(/##MORE INFO##([\s\S]*?)##END HERE##/);
 
           factText = factMatch ? factMatch[1].trim() : "No Fact Check available.";
