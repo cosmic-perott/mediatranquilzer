@@ -40,3 +40,7 @@ you can click on the entry box below and ask the AI follow up questions.
 this will direct you to a website made with streamlit where you can have a 1 to 1 conversation with the AI about the given topic.
 
 
+
+
+
+**All code, content, writings, images created by cosmic-perott for PennApps XXVI**
