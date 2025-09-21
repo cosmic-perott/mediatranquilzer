@@ -1,8 +1,27 @@
 if (!document.getElementById("yt-floating-btn")) { 
-  let btn = document.createElement("button"); 
-  btn.id = "yt-floating-btn"; 
-  btn.innerText = "TMT"; 
-  document.body.appendChild(btn); 
+  const btn = document.createElement("button");
+  btn.id = "yt-floating-btn";
+  btn.innerText = "TMT";
+  Object.assign(btn.style, {
+    width: "60px",
+    height: "60px",
+    border: "none",
+    borderRadius: "12px",
+    cursor: "pointer",
+    position: "fixed",
+    bottom: "20px",
+    right: "20px",
+    zIndex: "9999",
+    padding: "0",
+    color: "white",
+    fontWeight: "bold",
+    fontSize: "16px",
+    textAlign: "center",
+    lineHeight: "60px",
+    boxShadow: "0px 4px 6px rgba(0,0,0,0.2)",
+    background: "linear-gradient(135deg, #8B0000 50%, #000080 50%)"
+  });
+  document.body.appendChild(btn);
 
   let frame = document.createElement("div"); 
   frame.id = "yt-floating-frame"; 
@@ -80,7 +99,7 @@ if (!document.getElementById("yt-floating-btn")) {
               const userQuery = inputBox.value.trim();
               if (!userQuery) return;
 
-              const contextUrl = `https://penappstmt.streamlit.app/?fact=${encodeURIComponent(factText)}&neutral=${encodeURIComponent(neutralText)}&more=${encodeURIComponent(moreText)}&query=${encodeURIComponent(userQuery)}`;
+              const contextUrl = `https://mediatranquilzer-d8jvjfofdebtqn7d7wrxij.streamlit.app/?fact=${encodeURIComponent(frameFact.innerText)}&neutral=${encodeURIComponent(frameNeutral.innerText)}&more=${encodeURIComponent(frameMore.innerText)}&query=${encodeURIComponent(userQuery)}`;
               window.open(contextUrl, "_blank");
             }
           });
