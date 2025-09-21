@@ -45,7 +45,7 @@ def get_transcript(url):
     history=[]
 )
     
-    response = chat_session.send_message(f"{tt[-1]}. if this is an argumentative text, fact check and show both sides of argument to remove bias. if this is an informative text, fact check this. if this isn't either, provide further informaton to aid the viewer. use the labels ##FACT CHECK## if it is fact check. use the label ##NO BIAS## if it shows both sides of an argument without bias. use the label ##MORE INFO## if it shows more information on the topic. keep all sentences to 150 words MAX. every time a paragraph ends, end the paragrph with the label ##END HERE## any response you give must be put under one of the three labels. if you have a summary of the video, put it under fact check")
+    response = chat_session.send_message(f"{tt[-1]}. Initially assume it is an argumentative text and that it is opinion based and show both sides of the argument. if this is an argumentative text or if the video includes any opinions or any claims, show the neutralised overview of both arguments. assuming that the video is an arugmentative opinion based text, fact check any 'factual things' they are claiming. if this isn't either, provide further informaton to aid the viewer. use the labels ##FACT CHECK## when u are fact checking the content. use the label ##NO BIAS## when you are showing both sides of the arugment without bias (THIS LABEL MUST BE SHOWN IN YOUR RESPONSE). use the label ##MORE INFO## if it shows more information on the topic. keep all sentences to 150 words MAX. every time a paragraph ends, end the paragrph with the label ##END HERE## any response you give must be put under one of the three labels. if you have a summary of the video, put it under fact check")
 
     return response.text
     
