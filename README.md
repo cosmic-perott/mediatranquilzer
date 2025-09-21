@@ -23,7 +23,7 @@ After that is running, go to Google Chrome and go to the website
 
 Then upload the files in the IDE
 
-### Using the Extension
+### 2 Using the extension ###
 
 Go to ```youtube.com``` and click on any video.
 you should see a red and blue icon appear at the bottom right corner of your webpage.
